@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.gif" -printf "%f\n"
+find . -type f -name "*.gif" -printf "%f\n" | sort
