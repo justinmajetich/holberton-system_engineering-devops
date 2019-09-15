@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -empty -execdr echo '{}' ';' | cut -c 3-
+find . -empty -printf "%f\n"
