@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -c -1 acronistic | fmt -u | tr -d " "
+cut -c -1 acronistic | fmt -u
