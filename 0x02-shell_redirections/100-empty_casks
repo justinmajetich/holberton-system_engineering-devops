@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -empty | rev | cut -d "/" -f 1 | rev 
+. -empty -execdir echo '{}' ';' | cut -c 3-
