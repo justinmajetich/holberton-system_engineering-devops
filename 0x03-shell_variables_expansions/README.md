@@ -1,0 +1,1 @@
+This directory houses the files associated with Holberton student project "0x03. Shell, init file, variables and expansions". Each file here contains an executable script to perform the actions delineated in each project task.
