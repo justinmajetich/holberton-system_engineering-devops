@@ -1,2 +1,2 @@
 #!/bin/bash
-sort -nk3 test | head -n 11
+sort -nk3 | head -n 12 | tail -n +2 | cut -d " " -f 1
