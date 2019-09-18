@@ -1,2 +1,0 @@
-#!/bin/bash
-sort -nk3 test | head -n 11
