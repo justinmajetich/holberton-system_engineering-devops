@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -n . test | grep -e "[13579]:" | cut -d ":" -f 2
+grep -n . | grep -e "[13579]:" | cut -d ":" -f 2
