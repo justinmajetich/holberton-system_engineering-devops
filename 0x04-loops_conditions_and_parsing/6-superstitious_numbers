@@ -4,17 +4,16 @@ I=1
 while [ $I -le 20 ]
 do
 	echo "$I"
-	if [ $I = 4 ]
-	then
+	case $I in
+	4)
 		echo "bad luck from China"
-	fi
-	if [ $I = 9 ]
-	then
+		;;
+	9)
 		echo "bad luck from Japan"
-	fi
-	if [ $I = 17 ]
-	then
+		;;
+	17)
 		echo "bad luck from Italy"
-	fi
+		;;
+	esac
 	I=$((I + 1))
 done
