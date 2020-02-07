@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Print formatted entries in /etc/passwd
+while read entry
+do
+	echo "$entry" | cut -d ":" -f 1,3,6 
+done < /etc/passwd
