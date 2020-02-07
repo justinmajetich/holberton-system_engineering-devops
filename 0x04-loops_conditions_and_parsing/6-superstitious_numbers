@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Print numbers 1-20, specifying number of bad luck
+I=1
+while [ $I -le 20 ]
+do
+	echo "$I"
+	if [ $I = 4 ]
+	then
+		echo "bad luck from China"
+	fi
+	if [ $I = 9 ]
+	then
+		echo "bad luck from Japan"
+	fi
+	if [ $I = 17 ]
+	then
+		echo "bad luck from Italy"
+	fi
+	I=$((I + 1))
+done

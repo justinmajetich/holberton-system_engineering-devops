@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script prints files in current directory in list format
+for file in $( ls ):
+do
+	echo "$file" | cut -d "-" -f 2- | rev | cut -d ":" -f 2- | rev
+done	

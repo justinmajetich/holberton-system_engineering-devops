@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times with surprises at given intervals
+I=0
+while [ $I -lt 10 ]
+do
+	if [ $I = 3 ]
+	then
+		echo "bad luck"
+	elif [ $I = 7 ]
+	then
+		echo "good luck"
+	else
+		echo "Holberton School"
+	fi
+	I=$((I + 1))
+done

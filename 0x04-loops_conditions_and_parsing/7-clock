@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Pring hours and minutes
+HOUR=0
+while [ $HOUR -le 12 ]
+do
+	echo "Hour: $HOUR"
+	MINUTE=1
+	while [ $MINUTE -le 59 ]
+	do
+		echo "$MINUTE"
+		MINUTE=$((MINUTE + 1))
+	done
+	HOUR=$((HOUR + 1))
+done
