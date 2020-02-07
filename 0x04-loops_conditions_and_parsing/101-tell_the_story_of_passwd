@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Print passwd contents with formatting
-while read entry
+while read
 do
 	while IFS=':' read username password userid groupid idinfo home command
 	do
