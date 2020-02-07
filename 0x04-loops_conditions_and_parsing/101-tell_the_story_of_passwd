@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Print passwd contents with formatting
+while read entry
+do
+	while IFS=':' read username password userid groupid idinfo home command
+	do
+		echo "The user $username is part of the $groupid gang, lives in $home and rides $command. $userid's place is protected by the passcode $password, more info about the user here: $idinfo"
+	done 
+done < /etc/passwd
