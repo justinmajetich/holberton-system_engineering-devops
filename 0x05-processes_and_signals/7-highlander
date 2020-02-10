@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Display text in infinte loop
+i=1
+while [ $i ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap "echo \"I am invincible!!!\"" SIGTERM
+done
