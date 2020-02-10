@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Terminate process
-target=$(./1-list_your_processes | grep "4-to_infinity_and_beyond" | cut -d " " -f 3 | tail -1
-)
+target=$(pgrep -f "4-to_infinity_and_beyond")
 kill "$target"
