@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Background process
+i=0
+while [ $i ]
+do
+	echo "I am alive!" | sudo tee -a "/tmp/my_process" > /dev/null
+	sleep 2
+done
