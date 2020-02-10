@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Prints the PID of current process
+ps | tail -n 1 | cut -d ' ' -f 1

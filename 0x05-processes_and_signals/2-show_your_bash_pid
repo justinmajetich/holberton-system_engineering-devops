@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Prints list of current processes
+./1-list_your_processes | grep "bash"
