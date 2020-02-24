@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Display active IPv4s
+ifconfig | grep "inet addr" | cut -d " " -f 12 | cut -d ":" -f 2

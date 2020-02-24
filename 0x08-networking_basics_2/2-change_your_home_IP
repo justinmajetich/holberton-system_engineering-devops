@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# reconfigure Ubuntu server
+sed -i 's/127.0.0.1	localhost/127.0.0.2	localhost/' /etc/hosts
+sed -i '1s/^/8.8.8.8	facebook.com\n/' /etc/hosts
