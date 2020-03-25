@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Set up Apache server
+IP="$(curl ifconfig.me)"
+
+# Install Apache
+sudo apt-get -y update
+sudo apt-get -y install apache2
+
+# Set ServerName to IP
+sudo sed -i "s/#ServerName www.example.com/ServerName $IP/" /etc/apache2/sites-available/000-default.conf
+
+# Start Apache
+sudo service apache2 start
+
+# Generate webpage content
+echo "Hello Holberton" | sudo tee /var/www/html/index.html > /dev/null
