@@ -2,7 +2,5 @@
 #Install nginx web server
 apt-get -y update
 apt-get -y install nginx
-# sed -i 's/listen [0-9]+/listen 80/' /etc/nginx/sites-available/default
-# sed -i 's/listen \[::\]:[0-9]+/listen \[::\]:80/' /etc/nginx/sites-available/default
 echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
 systemctl start nginx
