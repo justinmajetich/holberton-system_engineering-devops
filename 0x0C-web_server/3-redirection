@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# Create a redirection page
+# Create redirect
+INDEX_COPY="Holberton School for the win!"
+
 sudo apt-get -y update
 sudo apt-get -y install nginx
-echo "Holberton School for the win!" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+echo "$INDEX_COPY" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
 sudo sed -i '/^\sserver_name.*/a \        rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 sudo service nginx start
