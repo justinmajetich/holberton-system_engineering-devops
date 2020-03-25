@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Install nginx web server
+apt-get -y update
+apt-get -y install nginx
+# sed -i 's/listen [0-9]+/listen 80/' /etc/nginx/sites-available/default
+# sed -i 's/listen \[::\]:[0-9]+/listen \[::\]:80/' /etc/nginx/sites-available/default
+echo "Holberton School is Holberton School!" > /var/www/html/index.nginx-debian.html
