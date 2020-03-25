@@ -9,5 +9,6 @@ if [ "$#" -lt 3 ]
 then
 	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
 else
+	sed -i 's/.*StrictHostKeyChecking yes/    StrictHostKeyChecking no/g' /etc/ssh/ssh_config
 	scp -i "$PATH_TO_SSH_KEY" "$PATH_TO_FILE" "$USERNAME"@"$IP":~/
 fi
