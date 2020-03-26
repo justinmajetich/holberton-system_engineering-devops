@@ -1,4 +1,8 @@
 # Install and configure nginx
+package { 'jfryman-nginx':
+  ensure => installed,
+}
+
 include nginx
 
 class { 'nginx':
@@ -8,7 +12,7 @@ class { 'nginx':
 
 nginx::resource::server { '34.73.76.135':
   listen_port      => 80,
-  www_root         => '/var/www/html/'
+  www_root         => '/var/www/html/',
   vhost_cfg_append => { 'rewrite' => '^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent' },
 }
 
