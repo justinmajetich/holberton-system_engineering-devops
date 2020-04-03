@@ -4,7 +4,7 @@
 # shellcheck disable=SC2154
 
 # config custom response header
-sudo sed -i "/^\slocation.*/i \        add_header X-Served-By \$hostname always;" /etc/nginx/sites-available/default
+sudo sed -i '/^\slocation.*/i \        add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 
 # run server
 sudo service nginx start
