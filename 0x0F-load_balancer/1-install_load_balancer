@@ -1,13 +1,13 @@
-#!/usr/bin/env bash
+usr/bin/env bash
 # Install and configure HAProxy load balancer
 
 sudo apt-get -y update
 sudo apt-get install -y haproxy
 
 # Enable load balancer
-sudo sed -i "1 a\ENABLED=1\n" /etc/default/haproxy
+sudo sed -i "8 a\ENABLED=1\n" /etc/default/haproxy
 
 # Config load balancer with web servers
-sudo sed -i "$ a\ \nfrontend load_balancer\n\tbind *:80\n\tmode http\n\tdefault_backend web_servers\n\nbackend web_servers\n\tmode http\n\tbalance roundrobin\n\toption forwardfor\n\thttp-request set-header X-Forwarded-Port %[dst_port]\n\thttp-request add-header X-Forwarded-Proto https if { ssl_fc }\n\toption httpchk HEAD / HTTP/1.1rnHost:localhost\n\tserver 1115-web-01 34.73.76.135:80 check\n\tserver 1115-web-02 18.209.20.255:80 check" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \nfrontend load_balancer\n\tbind\t0.0.0.0:80\n\tmode\thttp\n\tdefault_backend\tweb_servers\n\nbackend web_servers\n\tbalance\troundrobin\n\tserver\t1115-web-01\t34.73.76.135:80\n\tserver\t1115-web-02\t18.209.20.255:80" /etc/haproxy/haproxy.cfg
 
 sudo service haproxy start
