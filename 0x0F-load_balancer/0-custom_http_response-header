@@ -3,11 +3,8 @@
 
 # shellcheck disable=SC2154
 
-# get hostname
-# HOSTNAME=$(grep "127.0.0.1 localhost" /etc/hosts | cut -d ' ' -f 3)
-
 # config custom response header
-sudo sed -i "/^\slocation.*/i \        add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default
+sudo sed -i "/^\slocation.*/i \        add_header X-Served-By \$hostname always;" /etc/nginx/sites-available/default
 
 # run server
-sudo service nginx restart
+sudo service nginx start
