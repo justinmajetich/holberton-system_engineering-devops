@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Display information about subdomains
+# shellcheck disable=SC2086
+
+get_subdomain_spec () {
+
+	dig $2.$1 | awk 'c&&!--c;/;; ANSWER SECTION:/{c=1}' | awk -v subdom=$2 '{ print "The subdomain " subdom " is a " $4 " record and points to " $5}'
+
+	return 0
+}
+
+get_subdomain_all () {
+
+	subdomains=("www" "lb-01" "web-01" "web-02")
+		
+	for subdomain in "${subdomains[@]}"
+	do
+		dig $subdomain.$1 | awk 'c&&!--c;/;; ANSWER SECTION:/{c=1}' | awk -v subdom="$subdomain" '{ print "The subdomain " subdom " is a " $4 " record and points to " $5}'
+	done
+
+	return 0
+}
+
+# determine how many args passed
+if [ -z $2 ]
+then
+	get_subdomain_all "$1"
+else
+	get_subdomain_spec "$1" "$2"
+fi
