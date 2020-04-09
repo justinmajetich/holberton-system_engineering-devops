@@ -2,16 +2,17 @@
 # Run nginx as nginx user
 
 # kill apache2 server
-sudo pkill -f apache
+sudo pkill -f apache2
+sleep 10
 
 # update nginx user
-sudo sed -i 's/#user.*/user nginx;/' /etc/nginx/nginx.conf
+# sudo sed -i 's/#user.*/user nginx;/' /etc/nginx/nginx.conf
 
 # update listening ports
 sudo sed -i 's/80 /8080 /g' /etc/nginx/sites-enabled/default
 
 # change perms on config file
-# sudo chmod 777 /etc/nginx/nginx.conf
+sudo chmod 777 /etc/nginx/nginx.conf
 
 # restart nginx
-sudo service nginx restart
+sudo -u nginx service nginx restart
