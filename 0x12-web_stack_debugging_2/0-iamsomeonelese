@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Run command as given user
+sudo -u $1 whoami
