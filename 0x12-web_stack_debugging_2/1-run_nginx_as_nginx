@@ -1,8 +1,11 @@
 #!/usr/bin/bash env
 # Run nginx as nginx user
 
-# update nginx config
+# update nginx user
 sudo sed -i 's/#user.*/user nginx;/' /etc/nginx/nginx.conf
+
+# update listening ports
+sudo sed -i 's/80 default_server/8080 default_server/g' /etc/nginx/sites-available/default
 
 # restart nginx
 sudo service nginx restart
