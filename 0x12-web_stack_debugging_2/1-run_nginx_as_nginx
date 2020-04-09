@@ -5,9 +5,13 @@
 sudo sed -i 's/#user.*/user nginx;/' /etc/nginx/nginx.conf
 
 # update listening ports
-# sudo sed -i 's/80 default_server/8080 default_server/g' /etc/nginx/sites-available/default
+sudo sed -i 's/80 default_server/8080 default_server/g' /etc/nginx/sites-enabled/default
 
 # change perms on config file
+sudo chmod 744 /etc/nginx/nginx.conf
+
+# kill apache2 server
+pkill -f apache
 
 # restart nginx
-sudo service nginx start
+sudo -u nginx service nginx start
