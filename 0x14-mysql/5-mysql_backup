@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Create MySQL server backup
+
+PASS="$1"
+DATE=$(date +%d-%m-%Y)
+
+mysqldump -uroot -p"$PASS" --opt --all-databases > backup.sql
+
+tar -cvzf "$DATE".tar.gz backup.sql 
