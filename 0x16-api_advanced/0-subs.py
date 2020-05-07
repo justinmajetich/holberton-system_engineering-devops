@@ -16,15 +16,15 @@ def number_of_subscribers(subreddit):
     # custom user-agent avoids request limit
     headers = {'User-Agent': user_agent}
 
-    r = requests.get(url, headers=headers)
+    r = requests.get(url, headers=headers, allow_redirects=False)
+
+    if r.status_code != 200:
+        return 0
 
     # load response unit from json
     data = r.json()['data']
     # extract list of pages
     pages = data['children']
-    # check if list has contents
-    if not pages:
-        return 0
     # extract data from first page
     page_data = pages[0]['data']
     # return number of subreddit subs
