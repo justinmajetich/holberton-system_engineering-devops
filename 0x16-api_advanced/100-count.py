@@ -19,7 +19,6 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
     user_agent = '0x16-api_advanced-jmajetich'
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     # if page specified, pass as parameter
-
     if next_page:
         url += '?after={}'.format(next_page)
 
@@ -28,7 +27,6 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
     r = requests.get(url, headers=headers, allow_redirects=False)
 
     if r.status_code != 200:
-        print()
         return
 
     # DATA PARSING
@@ -53,7 +51,10 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
         sorted_list = sorted(count_list,
                              key=lambda word: (word['count'], word['keyword']),
                              reverse=True)
+        keywords_matched = 0
         # print keywords and counts
         for word in sorted_list:
-            print('{}: {}'.format(word['keyword'], word['count']))
+            if word['count'] < 0:
+                print('{}: {}'.format(word['keyword'], word['count']))
+                keywords_matched += 1
         return
