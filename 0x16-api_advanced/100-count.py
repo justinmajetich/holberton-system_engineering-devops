@@ -37,7 +37,6 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
     posts = data['children']
     for post in posts:
         title = post['data']['title']
-
         for item in count_list:
             title_lower = title.lower()
             title_list = title_lower.split()
@@ -54,7 +53,7 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
         keywords_matched = 0
         # print keywords and counts
         for word in sorted_list:
-            if word['count'] < 0:
+            if word['count'] > 0:
                 print('{}: {}'.format(word['keyword'], word['count']))
                 keywords_matched += 1
         return
