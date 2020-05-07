@@ -11,7 +11,7 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
     # convert word_list to dict with count
     if not count_list:
         for word in word_list:
-            count_list.append(dict({'keyword': word.lower(),
+            count_list.append(dict({'keyword': word,
                                     'count': 0}))
 
     # NETWORKING
@@ -40,7 +40,7 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
         for item in count_list:
             title_lower = title.lower()
             title_list = title_lower.split()
-            item['count'] += title_list.count(item['keyword'])
+            item['count'] += title_list.count(item['keyword'].lower())
 
     next_page = data['after']
     if next_page is not None:
